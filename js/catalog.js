@@ -47,9 +47,15 @@ function handleSubmit(event) {
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
+  // DONE: suss out the item picked from the select list
+  var itemSelected = (event.target.items.value);
+  console.log('items', itemSelected);
+  // DONE: get the quantity
+  var quantitySelected = (event.target.quantity.value);
+  console.log('quantitySelected', quantitySelected);
+
   // TODO: using those, add one item to the Cart
+
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
@@ -57,8 +63,14 @@ function updateCounter() {}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  // DONE: Get the item and quantity from the form
+  // DONE: Add a new element to the cartContents div with that information
+  // referenced for how to get value from form: https://stackoverflow.com/questions/3547035/javascript-getting-html-form-values/41262933
+  var mySelectedItems = (event.target.items.value + event.target.quantity.value);
+  var list = document.getElementById('cartContents');
+  var listItems = document.createElement('li');
+  listItems.textContent = (mySelectedItems);
+  list.appendChild(listItems);
 }
 
 // Set up the "submit" event listener on the form.
