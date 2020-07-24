@@ -13,6 +13,8 @@ Process: read through so you understand it
 
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
+var counter = 0;
+
 
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
@@ -43,9 +45,10 @@ function handleSubmit(event) {
   updateCounter();
   updateCartPreview();
 
+
 }
 
-// TODO: Add the selected item and quantity to the cart
+// DONE: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // DONE: suss out the item picked from the select list
   var itemSelected = (event.target.items.value);
@@ -54,14 +57,23 @@ function addSelectedItemToCart() {
   var quantitySelected = (event.target.quantity.value);
   console.log('quantitySelected', quantitySelected);
 
-  // TODO: using those, add one item to the Cart
+  // DONE: using those, add one item to the Cart
+  // var temp = new Cart([itemSelected, quantitySelected]);
+  // console.log(temp);
+  
+  cart.addItem(itemSelected, quantitySelected);
+}
+
+// DONE: Update the cart count in the header nav with the number of items in the Cart
+function updateCounter() {
+  counter++;
+  var itemCount = document.getElementById("itemCount");
+  itemCount.textContent = '(' + counter +  ')';
+
 
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
-
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// DONE: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // DONE: Get the item and quantity from the form
   // DONE: Add a new element to the cartContents div with that information
